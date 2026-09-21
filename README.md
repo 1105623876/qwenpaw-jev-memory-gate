@@ -102,12 +102,12 @@ JevGatedReMeManager._search_for_auto_memory(query, options)
 qwenpaw plugin install /path/to/jev-memory-gate
 
 # 或从 Release ZIP 压缩包安装（支持本地或远程 URL）
-qwenpaw plugin install https://github.com/<your-username>/qwenpaw-jev-memory-gate/releases/download/v0.1.0/jev-memory-gate-v0.1.0.zip
+qwenpaw plugin install https://github.com/1105623876/qwenpaw-jev-memory-gate/releases/download/v0.1.0/jev-memory-gate-v0.1.0.zip
 ```
 
 ### 方式 B：Git Clone 源码安装
 ```bash
-git clone https://github.com/<your-username>/qwenpaw-jev-memory-gate.git ~/.qwenpaw/plugins/jev-memory-gate
+git clone https://github.com/1105623876/qwenpaw-jev-memory-gate.git ~/.qwenpaw/plugins/jev-memory-gate
 ```
 
 ### 验证插件加载
@@ -230,49 +230,7 @@ INFO | event=jev_memory_gate gate_enabled=True decision=RETRIEVE probability=0.9
 
 ---
 
-## 9. 开发者发布指南（Publishing & Zero-Leak）
-
-如果你希望将本插件分享给其他开发者或开源到 GitHub：
-
-### 9.1 零泄露安全自检 Checklist
-在发布代码前，请确保：
-- [x] **无硬编码 Key**：`plugin.py`、`gate.py`、`plugin.json` 中的 `api_key` 均为默认空字符串 `""`。
-- [x] **忽略本地私有文件**：本仓库已配置 `.gitignore`，自动排除 `.env`、`agent.json`、`*.log`、`__pycache__` 等。
-- [x] **测试通过**：本地 16 项自动化测试全部通过。
-- [x] **规范校验**：通过 `qwenpaw plugin validate` 检查。
-
-### 9.2 发布方式一：GitHub 开源仓库
-1. 在 GitHub 上新建仓库（例如 `qwenpaw-jev-memory-gate`）。
-2. 在本地插件目录提交并推送：
-   ```bash
-   cd ~/.qwenpaw/plugins/jev-memory-gate
-   git init
-   git add .
-   git commit -m "feat: initial release of jev-memory-gate plugin v0.1.0"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/qwenpaw-jev-memory-gate.git
-   git push -u origin main
-   ```
-
-### 9.3 发布方式二：打包为 ZIP 供用户下载安装
-在 `~/.qwenpaw/plugins/` 目录下一键生成纯净的分发归档：
-```bash
-cd ~/.qwenpaw/plugins
-zip -r jev-memory-gate-v0.1.0.zip jev-memory-gate \
-    -x "*.pyc" \
-    -x "*__pycache__*" \
-    -x "*.DS_Store" \
-    -x "*/.git/*" \
-    -x "*/tests/__pycache__/*"
-```
-用户获取 ZIP 包后，只需在终端执行一行命令即可完成安装：
-```bash
-qwenpaw plugin install ./jev-memory-gate-v0.1.0.zip
-```
-
----
-
-## 10. 回退与卸载
+## 9. 回退与卸载
 
 ### 临时回退到原生 ReMe
 在 `agent.json` 中将 `memory_manager_backend` 改回 `"remelight"` 即可：

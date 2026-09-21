@@ -176,7 +176,7 @@ export JEV_API_KEY="apikey_your_secret_key_here"
 | 字段 | 类型 | 推荐值 | 默认值 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
 | `enabled` | boolean | `true` | `true` | 是否启用门控（设为 `false` 则退化为每轮必搜） |
-| `threshold` | float | `0.50` | `0.50` | 判定阈值：Jev 计算的 $P(\text{need\_memory}) \ge \text{threshold}$ 时触发检索 |
+| `threshold` | float | `0.50` | `0.50` | 判定阈值：当 Jev 计算的 `P(need_memory) >= threshold` 时触发检索 |
 | `timeout_ms` | integer | `2000` | `2000` | 请求超时（毫秒）。跨域/代理推荐 2000ms，超时立即 Fail-Open 触发原生搜索 |
 | `proxy` | string | 视网络而定 | `""` | HTTP/HTTPS 网络代理（如 `"http://127.0.0.1:7897"`），留空直连 |
 | `model` | string | `"jev-latest"` | `"jev-latest"` | Jev 模型版本号 |

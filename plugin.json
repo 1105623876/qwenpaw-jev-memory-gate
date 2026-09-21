@@ -1,0 +1,18 @@
+{
+  "id": "jev-memory-gate",
+  "name": "Jev Memory Gate",
+  "version": "0.1.0",
+  "type": "memory",
+  "description": "Pre-retrieval intelligent gate for QwenPaw automatic semantic memory using TypeSafe AI Jev.",
+  "description_i18n": {
+    "zh-CN": "基于 TypeSafe AI Jev 决策模型的自动语义记忆检索门控插件。",
+    "en-US": "Pre-retrieval intelligent gate for QwenPaw automatic semantic memory using TypeSafe AI Jev."
+  },
+  "author": "yui",
+  "qwenpaw_version": {
+    "min": "2.0.0"
+  },
+  "entry": {
+    "backend": "plugin.py"
+  }
+}
